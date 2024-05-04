@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books Collection</title>
+</head>
+<body>
+    <h1>Books Collection</h1>
+
+    <script>
+        var books = [
+            { title: "To Kill a Mockingbird", author: "Harper Lee", genre: "Fiction", year: 1960 },
+            { title: "1984", author: "George Orwell", genre: "Dystopian", year: 1949 },
+            { title: "The Great Gatsby", author: "F. Scott Fitzgerald", genre: "Classic", year: 1925 }
+        ];
+
+        function displayBookInfo(book) {
+            alert("Title: " + book.title + "\nAuthor: " + book.author + "\nGenre: " + book.genre + "\nYear: " + book.year);
+        }
+
+        2
+        function searchBook(title) {
+            for (var i = 0; i < books.length; i++) {
+                if (books[i].title.toLowerCase() === title.toLowerCase()) {
+                    return books[i];
+                }
+            }
+            return null;
+        }
+
+        function addBook(title, author, genre, year) {
+            var newBook = { title: title, author: author, genre: genre, year: year };
+            books.push(newBook);
+            alert("New book added successfully!");
+        }
+
+        
+        var searchTitle = "To Kill a Mockingbird";
+        var foundBook = searchBook(searchTitle);
+        if (foundBook) {
+            displayBookInfo(foundBook);
+        } else {
+            alert("Book with title '" + searchTitle + "' not found.");
+        }
+
+        addBook("The Catcher in the Rye", "J.D. Salinger", "Classic", 1951);
+    </script>
+</body>
+</html>

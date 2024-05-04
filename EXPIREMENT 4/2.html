@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Child Window</title>
+    <style>
+        body {
+            background-color: pink;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: inline-block;
+            width: 100px;
+        }
+        .input-group input {
+            width: 200px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MY WINDOW</h1>
+        <div class="input-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name">
+        </div>
+        <div class="input-group">
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" id="mobile">
+        </div>
+        <div class="input-group">
+            <label for="city">City:</label>
+            <input type="text" id="city">
+        </div>
+        <button onclick="openWindow()">Open Window</button>
+        <button onclick="closeWindow()">Close Window</button>
+    </div>
+
+    <script>
+        var myWindow;
+
+        function openWindow() {
+            var name = document.getElementById("name").value;
+            var mobile = document.getElementById("mobile").value;
+            var city = document.getElementById("city").value;
+
+            var leftPosition = window.screen.width - 500;
+            myWindow = window.open("", "childWindow", "width=500,height=300,left=" + leftPosition);
+
+            
+            myWindow.document.write("<h2>Information</h2>");
+            myWindow.document.write("<p>Name: " + name + "</p>");
+            myWindow.document.write("<p>Mobile Number: " + mobile + "</p>");
+            myWindow.document.write("<p>City: " + city + "</p>");
+        }
+
+        function closeWindow() {
+            if (myWindow && !myWindow.closed) {
+                myWindow.close();
+            }
+        }
+    </script>
+</body>
+</html>
